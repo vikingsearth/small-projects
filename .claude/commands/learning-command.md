@@ -1,558 +1,359 @@
-# Design Thinking with Limited Resources
+# Design Thinking Coach
 
-A learning framework for applying design-level thinking when you lack stakeholder feedback or user research availability.
+**Purpose**: Guide you through applying the DARE framework to think systematically about design when you lack user research or stakeholder feedback.
 
----
-
-## Core Philosophy
-
-When you can't access users or stakeholders, you must become a **rigorous skeptic of your own assumptions** while building **defensible design rationale** through systematic thinking.
+**How this works**: I'll ask you questions, you'll think through them, and YOU'LL create the design documents. I'm your coach, not your ghostwriter.
 
 ---
 
-## Framework: The DARE Loop
+## What We'll Do Together
 
-### D - Document Assumptions
-### A - Analyze Constraints
-### R - Reason from Principles
-### E - Evaluate & Iterate
+I'll guide you through the **DARE framework**:
+- **D**ocument Assumptions (your blindspots)
+- **A**nalyze Constraints (your boundaries)
+- **R**eason from Principles (proven patterns)
+- **E**valuate & Iterate (self-validation)
+
+For each phase, I'll:
+1. Explain the concept with examples
+2. Ask you probing questions
+3. Have YOU write your answers
+4. Give feedback on your thinking
+5. Move to the next phase when ready
 
 ---
 
-## Phase 1: Document Assumptions (Your Blindspots)
+## How to Use This Command
 
-Instead of having user research, you must **explicitly surface and challenge your assumptions**.
+**First time**: `/learning-command [project name or description]`
+- I'll start with Phase 1: Document Assumptions
 
-### Exercise: The Assumption Inventory
+**Continuing**: `/learning-command continue` or `/learning-command [phase name]`
+- We'll pick up where you left off or jump to a specific phase
 
-For your current project, list:
+**Get help**: `/learning-command help [topic]`
+- I'll explain a specific concept in detail
 
-1. **User Assumptions**
-   - Who do I think will use this?
-   - What problems do I assume they have?
-   - What do I assume about their technical sophistication?
-   - What do I assume about their context of use?
+---
 
-2. **Value Assumptions**
-   - What do I assume will provide value?
-   - What do I assume users care about most?
-   - What do I assume is "good enough"?
+## Session Flow
 
-3. **Technical Assumptions**
-   - What do I assume about performance needs?
-   - What do I assume about scale?
-   - What do I assume about integration requirements?
+### Phase 1: Document Assumptions (Your Blindspots)
 
-### Output Format
+**Core Idea**: You're designing without user research, so you're making assumptions. Let's make them EXPLICIT so we can challenge them.
 
+**I'll ask you**:
+1. Who do you think will use this? Why?
+2. What problems do they have that your project solves?
+3. What do they value most?
+4. What technical decisions are you assuming will work?
+
+**You'll do**:
+- Answer each question thoughtfully
+- For each assumption, rate: Confidence (High/Med/Low) and Risk if wrong (High/Med/Low)
+- Identify your 3-5 riskiest assumptions
+- For risky ones: What if you're wrong? What would you do differently?
+
+**I'll help you**:
+- Spot hidden assumptions you haven't mentioned
+- Challenge assumptions that seem overconfident
+- Ask "what evidence would change your mind?"
+- Guide you to write an `assumptions.md` file
+
+**What good looks like**:
 ```markdown
-## Assumption Log
-
-### USER-[tag]
-[One-line assumption]
-**Confidence**: High/Medium/Low
-**Risk if wrong**: High/Medium/Low
-**Validation strategy**: [How you could test this]
-
-### VALUE-[tag]
-...
-
-### TECH-[tag]
-...
+### USER-001: Primary User Type
+**Assumption**: School administrators (not teachers) will be the main operators
+**Confidence**: Medium - based on similar systems I've seen
+**Risk if wrong**: High - if teachers are primary users, UI needs to be simpler
+**Evidence that would change my mind**: Interviews with 3+ schools
+**If wrong, I would**: Redesign for mobile-first, classroom-friendly interface
 ```
 
-### Critical Practice
-
-**For each HIGH RISK assumption, you MUST:**
-- Identify at least 2 alternative scenarios where the assumption is false
-- Document what you'd do differently if the assumption is wrong
-- Define what evidence would make you change your mind
-
 ---
 
-## Phase 2: Analyze Constraints (Your Design Boundaries)
+### Phase 2: Analyze Constraints (Your Design Boundaries)
 
-Constraints are **gifts** when you lack research—they narrow your decision space and provide objective criteria.
+**Core Idea**: Constraints are gifts. They eliminate bad options and guide good decisions.
 
-### The Constraint Matrix
+**I'll ask you**:
+1. What CANNOT change? (hard constraints: laws, physics, budget, hardware)
+2. What SHOULD NOT change without good reason? (soft constraints: preferences, conventions)
+3. What did YOU CHOOSE to constrain? (self-imposed: scope, quality bars, principles)
 
-Map constraints across three dimensions:
+**You'll do**:
+- List 5-10 constraints across the three types
+- For each: Why is it a constraint? What's the impact on design?
+- Create a "constraint decision hierarchy" - which constraints override others?
 
-1. **Hard Constraints** (Cannot be changed)
-   - Technical limitations (APIs, frameworks, performance)
-   - Resource limitations (time, budget, team size)
-   - External requirements (regulations, standards, dependencies)
+**I'll help you**:
+- Identify constraints you haven't thought of
+- Distinguish between hard vs. soft constraints
+- Challenge self-imposed constraints (are they serving you or limiting you?)
+- Show how to use constraints to eliminate design options quickly
 
-2. **Soft Constraints** (Can be negotiated)
-   - Preferences (tech stack, patterns, style)
-   - Conventions (team norms, industry practices)
-   - Nice-to-haves (features, polish, optimization)
-
-3. **Self-Imposed Constraints** (You chose these)
-   - Scope decisions ("We won't support X")
-   - Quality thresholds ("Must load in < 2s")
-   - Design principles ("Mobile-first")
-
-### Exercise: Constraint Clarity
-
-For your project, answer:
-
-1. **What CANNOT change?**
-   - [List hard constraints with rationale]
-
-2. **What SHOULD NOT change without good reason?**
-   - [List soft constraints with trade-offs]
-
-3. **What did I CHOOSE to constrain?**
-   - [List self-imposed constraints with purpose]
-
-### Why This Matters
-
-Constraints give you a **decision-making hierarchy**:
-- When you face a design choice, check constraints first
-- Hard constraints eliminate options immediately
-- Soft constraints bias toward proven patterns
-- Self-imposed constraints reflect your design values
-
----
-
-## Phase 3: Reason from Principles (Your Mental Models)
-
-Without user feedback, you must rely on **design principles** and **mental models** that have proven robust across contexts.
-
-### Universal Design Heuristics
-
-These work even without research:
-
-#### 1. **Progressive Disclosure**
-   - Don't show everything at once
-   - Reveal complexity as needed
-   - Start simple, allow depth
-
-#### 2. **Consistency Over Cleverness**
-   - Follow established patterns
-   - Reduce cognitive load
-   - Make similar things work similarly
-
-#### 3. **Feedback & Affordance**
-   - Make actions obvious
-   - Confirm what happened
-   - Show system state clearly
-
-#### 4. **Error Prevention > Error Handling**
-   - Make invalid states impossible
-   - Validate early
-   - Guide toward success
-
-#### 5. **Cognitive Load Reduction**
-   - Minimize decisions required
-   - Use recognition over recall
-   - Provide sensible defaults
-
-### Exercise: Heuristic Evaluation
-
-For each screen/feature in your project:
-
-1. **Map it to heuristics**: Which principles apply?
-2. **Grade each heuristic**: A/B/C/D/F
-3. **Document violations**: Where do you break principles? Why?
-
+**What good looks like**:
 ```markdown
-## Feature: User Login
+### HARD-001: Privacy Regulations
+**Constraint**: Must comply with GDPR for EU users
+**Why it matters**: Legal requirement, non-negotiable
+**Impact**: Cannot store raw biometric data, must use encrypted templates
+**Eliminates**: Any design that stores fingerprint images
+```
 
-### Progressive Disclosure: B
+---
+
+### Phase 3: Reason from Principles (Steal Wisdom)
+
+**Core Idea**: You don't have users, but you have centuries of design knowledge and existing examples to learn from.
+
+**I'll guide you through**:
+1. **Find 3-5 comparable products** - Who solved similar problems?
+2. **Extract patterns** - What do they all do? (That's your baseline)
+3. **Note differences** - Where do they diverge? (That's where trade-offs exist)
+4. **Apply heuristics** - Test your design against 5 universal principles:
+   - Progressive Disclosure (simple → complex as needed)
+   - Consistency (similar things work similarly)
+   - Feedback (user always knows what happened)
+   - Error Prevention (make mistakes impossible)
+   - Cognitive Load Reduction (minimize decisions)
+
+**You'll do**:
+- Research 3-5 comparable systems (competitors or analogous products)
+- Document what patterns emerge (table format works well)
+- Grade your current design ideas against the 5 heuristics (A/B/C/D/F)
+- Note where you violate principles and WHY (intentional trade-offs are ok)
+
+**I'll help you**:
+- Find comparable systems if you're stuck
+- Interpret patterns (what do they mean for your design?)
+- Grade your heuristic evaluation (am I being too harsh? too lenient?)
+- Decide when to follow patterns vs. diverge intentionally
+
+**What good looks like**:
+```markdown
+### Comparable System: ZKTeco Attendance (Commercial Leader)
+**What they do**: Audio beep + visual name display after fingerprint scan
+**Why it works**: Multi-sensory feedback reduces uncertainty
+**Pattern extracted**: Biometric systems need audio + visual confirmation
+**Applied to my design**: Will use same pattern (proven, expected)
+
+### Heuristic Evaluation: My Login Flow
+**Progressive Disclosure: B+**
 - Shows all fields upfront (email, password, remember me)
-- Could hide "Forgot password" until needed
-- Could defer "Sign up" to separate flow
-
-### Consistency: A
-- Matches industry standard login patterns
-- Uses familiar form conventions
-
-### Feedback: C
-- No loading state during authentication
-- Error messages too generic
-- FIX: Add spinner, specific error messages
+- Could hide "Forgot password" until first failure
+- TRADE-OFF: Common pattern, users expect to see all options
 ```
-
-### The "Steal Like an Artist" Principle
-
-When you can't do user research:
-
-1. **Find 3-5 comparable solutions** (competitors, analogous products)
-2. **Document patterns** (what's common across them?)
-3. **Note deviations** (where do they differ? why?)
-4. **Extract principles** (what conventions emerge?)
-
-Common patterns exist for a reason—they've been validated through real-world use.
 
 ---
 
-## Phase 4: Evaluate & Iterate (Your Validation Loop)
+### Phase 4: Evaluate & Iterate (Self-Validation)
 
-Without external feedback, you must **manufacture objectivity** through structured self-critique.
+**Core Idea**: Without users, you must "manufacture objectivity" through structured self-critique.
 
-### Self-Evaluation Framework
+**I'll teach you 4 techniques**:
 
-#### A. The Fresh Eyes Test
-
-1. **Wait 24+ hours** after designing something
-2. **Approach as a stranger**
-3. **Narrate your confusion**: "I don't know what this button does", "I don't know where to start"
-4. **Document friction points**
-
-#### B. The Cognitive Walkthrough
-
-For each key user flow:
-
-1. **Define the goal**: "User wants to [accomplish X]"
-2. **List required steps**: [Step 1, Step 2, ...]
-3. **For each step, ask:**
+**A. Cognitive Walkthrough** - Step through user flows asking:
    - Will users know what to do?
-   - Will users see how to do it?
-   - Will users understand what happened?
+   - Will they see how to do it?
+   - Will they understand what happened?
 
-4. **Count friction**:
-   - How many steps? (Fewer = better)
-   - How many decisions? (Fewer = better)
-   - How many "aha!" moments needed? (Fewer = better)
+**B. Edge Case Exploration** - For each feature:
+   - Empty state (no data)
+   - Maximum state (too much data)
+   - Error state (something fails)
+   - Async state (loading)
+   - Permission denied state
 
-#### C. The Assumption Test
+**C. Assumption Testing** - Revisit your assumptions:
+   - What assumptions does this design rely on?
+   - What evidence do I have they're valid?
+   - How bad is the failure if I'm wrong?
 
-Revisit your Assumption Log:
+**D. Reversal Criteria** - For each decision:
+   - What evidence would make me change my mind?
 
-1. **What assumptions did this design rely on?**
-2. **What evidence do I have that they're valid?**
-3. **If they're wrong, how badly does this fail?**
+**You'll do**:
+- Pick 2-3 critical user flows
+- Walk through each step with the 3 questions
+- Document friction points (steps, decisions, "aha!" moments needed)
+- Explore edge cases for your most important features
+- Test your design against your assumptions
 
-#### D. The Edge Case Exploration
+**I'll help you**:
+- Ask the tough questions you're avoiding
+- Spot friction you've become blind to
+- Challenge optimistic assumptions
+- Help you define realistic success criteria
 
-For each feature:
+**What good looks like**:
+```markdown
+### Cognitive Walkthrough: Student Scans Fingerprint
 
-1. **Empty states**: What if there's no data?
-2. **Maximum states**: What if there's too much data?
-3. **Error states**: What if something fails?
-4. **Async states**: What happens during loading?
-5. **Permissions**: What if user can't do this?
+**Goal**: Mark attendance in <10 seconds
 
-Document how you handle (or don't handle) each case.
+**Step 1**: Approach terminal
+- Will they know what to do? ✓ (terminal labeled, visible)
+- See how? ✓ (large display)
+- Understand? ✓
+
+**Step 2**: Read prompt "Place finger on scanner"
+- Will they know what to do? ⚠ (first-timers may not know which finger)
+- See how? ✓ (icon shows finger placement)
+- Understand? ✓
+- **FRICTION IDENTIFIED**: Need visual guide for first-time users
+
+**Friction Count**: 6 steps, 1 decision, 1 "aha!" moment (good)
+```
 
 ---
 
-## Decision Documentation Template
+## Coaching Approach
 
-When you make a design decision without research, use this template:
+### When you share your thinking, I'll:
+
+✅ **Affirm good thinking**: "That's a strong assumption - you've identified the risk clearly"
+
+❓ **Ask clarifying questions**: "You say teachers are the primary users - what about parents?"
+
+🚩 **Challenge weak spots**: "You rated that assumption as low risk, but what if 50% of students can't use the fingerprint scanner?"
+
+💡 **Offer perspective**: "In comparable systems, this pattern appears 8/10 times - have you considered why?"
+
+📋 **Suggest documentation**: "This thinking should go in your constraints.md file under HARD constraints"
+
+🎯 **Keep you moving**: "Great! You've documented 8 assumptions. Ready to move to constraints?"
+
+---
+
+## Example Session Start
+
+**User**: `/learning-command P2 - Biometric Attendance`
+
+**Claude**: Great! Let's apply design thinking to your Biometric Attendance System. Since you don't have users to interview yet, we'll use the DARE framework to think systematically.
+
+Let's start with **Phase 1: Document Assumptions**.
+
+Here's what I need you to think about:
+
+**Question 1: Who will use this system?**
+
+Think about:
+- The person who checks in (student? employee?)
+- The person who administers it (IT admin? teacher? principal?)
+- The person who views reports (teacher? parent? administrator?)
+
+Don't just list roles - tell me:
+- How tech-savvy are they?
+- What's their context of use? (Rushed? Distracted? First-time?)
+- What's their motivation? (Required? Convenient? Monitored?)
+
+Take a moment and write down 3-5 user assumptions.
+
+I'll wait for your response, then we'll dig deeper together.
+
+---
+
+**User**: [Shares their thinking]
+
+**Claude**: Good start! I see you've identified:
+- Students as primary users (ages 6-18)
+- School admins as system operators
+- Teachers as report viewers
+
+Let me push on a few things:
+
+1. **Students ages 6-18 is a HUGE range.** A 6-year-old has very different capabilities than a 16-year-old. Which age group is your design optimized for? What happens if you optimize for 16-year-olds and 6-year-olds struggle?
+
+2. **You assumed school admins run the system.** What evidence do you have? In many schools, teachers have to do everything themselves. If teachers are actually the operators, what changes about your design?
+
+3. **You didn't mention parents.** Do they care about attendance? Want notifications? Need access? Or is this purely internal to the school?
+
+Let's refine your assumptions. For each user type, I want you to:
+- State the assumption clearly
+- Rate your confidence (High/Med/Low)
+- Rate the risk if you're wrong (High/Med/Low)
+- Define what evidence would change your mind
+
+Try writing one assumption in this format:
 
 ```markdown
-### DESIGN-[tag]
-
-**Decision**: [One-line description]
-
-**Context**: [What problem does this solve?]
-
-**Assumptions**:
-- USER-[tag]: [Related assumption]
-- VALUE-[tag]: [Related assumption]
-
-**Alternatives Considered**:
-1. [Option A]: Rejected because [reason]
-2. [Option B]: Rejected because [reason]
-
-**Rationale**:
-[Why this approach, given constraints and principles]
-
-**Validation Strategy**:
-- [ ] Cognitive walkthrough completed
-- [ ] Edge cases documented
-- [ ] Heuristic evaluation: [Score]
-- [ ] Comparable pattern found in: [Examples]
-
-**Risks**:
-- [Risk 1]: Mitigated by [strategy]
-- [Risk 2]: Accepting this risk because [reason]
-
-**Reversal Criteria**:
-[What evidence would make you change this decision?]
+### USER-001: [Short description]
+**Assumption**: [One clear sentence]
+**Confidence**: [High/Med/Low] because [reason]
+**Risk if wrong**: [High/Med/Low] because [impact]
+**Evidence that would change my mind**: [What would prove you wrong?]
 ```
 
----
-
-## Practical Workflow
-
-### When Starting a New Feature
-
-1. **List assumptions** (5-10 minutes)
-   - Who is this for?
-   - What value does it provide?
-   - What are the constraints?
-
-2. **Research comparables** (15-30 minutes)
-   - Find 3-5 similar implementations
-   - Document patterns
-   - Extract design principles
-
-3. **Sketch options** (30-60 minutes)
-   - Create 2-3 distinct approaches
-   - Each should respect different trade-offs
-
-4. **Evaluate systematically**
-   - Heuristic evaluation
-   - Constraint check
-   - Assumption validation
-
-5. **Document decision** (10 minutes)
-   - Use decision template
-   - Capture rationale
-   - Define reversal criteria
-
-### When Stuck on a Design Decision
-
-Ask yourself:
-
-1. **What am I assuming?** → Document it
-2. **What are my constraints?** → Check against them
-3. **What's the established pattern?** → Find comparables
-4. **What's the simplest thing?** → Start there
-5. **How would I know if I'm wrong?** → Define tests
+Show me one assumption written this way, and I'll give you feedback before you do the rest.
 
 ---
 
-## Leveling Up: Advanced Techniques
+## When You Get Stuck
 
-### 1. Personas Without Research
+**If you're not sure what to assume**, I'll ask:
+- "Who benefits if this succeeds?"
+- "Who is harmed if this fails?"
+- "What's the simplest version of this?"
 
-Create **proto-personas** based on:
-- Your target market (documented facts)
-- Analogous user bases (competitor analysis)
-- First principles (universal human needs)
+**If you can't identify constraints**, I'll prompt:
+- "What budget/time do you have?"
+- "What laws or regulations apply?"
+- "What technical limitations exist?"
 
-**Template:**
-```markdown
-## Proto-Persona: [Name]
+**If you can't find comparable systems**, I'll help:
+- "What problem does this solve? Who else solves it?"
+- "What's the analogous product in a different domain?"
 
-**Based on**: [Competitor analysis / Market research / Domain knowledge]
-
-**Goals**:
-- [What they want to accomplish]
-
-**Context**:
-- [When/where they use this]
-
-**Technical Comfort**: [Low/Medium/High]
-
-**Biggest Frustrations**:
-- [Known pain points in this domain]
-
-**Success Criteria**:
-- [How they'd measure success]
-
-**Validation Notes**:
-- This is a hypothesis
-- Evidence supporting: [Facts]
-- Evidence against: [Gaps]
-```
-
-### 2. Jobs-to-be-Done Framework
-
-Instead of asking "Who is the user?", ask:
-
-**"What job is the user hiring this product to do?"**
-
-Example:
-- ❌ "Users are busy professionals" (demographic)
-- ✅ "Users need to quickly capture ideas before forgetting them" (job)
-
-Jobs give you **design direction** without needing user interviews.
-
-### 3. The Regret Minimization Framework
-
-For each design decision, ask:
-
-**"If this is wrong, will I regret NOT having tried the alternative?"**
-
-- Low regret = Go with simpler/faster option
-- High regret = Spend more time validating
-
-### 4. The Reversibility Test
-
-Classify decisions:
-
-- **Type 1 (Irreversible)**: Database schema, core architecture
-  → Spend MORE time validating assumptions
-
-- **Type 2 (Reversible)**: UI layout, copy, styling
-  → Move faster, iterate based on reality
+**If evaluation feels too abstract**, I'll make it concrete:
+- "Walk me through: You're a [user type]. You want to [goal]. What's step 1?"
 
 ---
 
-## Red Flags (When to Seek Feedback)
+## Success Criteria
 
-Even with limited resources, you should try to get feedback if:
+You'll know you're doing this right when:
 
-1. **High-stakes decisions with irreversible consequences**
-   - Core architecture choices
-   - Data models affecting many systems
-   - Public API contracts
+✅ You're uncomfortable (you're challenging your own assumptions)
 
-2. **Assumptions with catastrophic failure modes**
-   - Security implications
-   - Legal/compliance requirements
-   - Accessibility for disabled users
+✅ You're discovering gaps (you realize what you don't know)
 
-3. **Novelty in your domain**
-   - Solving a problem you've never solved before
-   - Using technology/patterns you're unfamiliar with
-   - Creating something without comparable examples
+✅ You're documenting (you have .md files with your thinking)
 
-4. **Persistent uncertainty**
-   - You've evaluated and still can't decide
-   - Trade-offs seem equal
-   - Assumptions conflict
+✅ You're getting specific (not "users want it fast", but "users need <2s response time because class transitions are 3 minutes")
 
-**Options when you must get feedback:**
-- Find domain experts (online communities, friends)
-- Share prototypes in relevant forums
-- Do lightweight surveys (Twitter polls, Reddit)
-- Conduct guerrilla testing (coffee shop, family)
+✅ You're defining tests (you know what evidence would prove you wrong)
 
 ---
 
-## Learning Exercises
+## Command Arguments
 
-### Exercise 1: Assumption Archeology
+**Start new**: `/learning-command [project name]`
 
-Take an existing project (yours or open source):
-1. Reverse-engineer the assumptions
-2. Document the design decisions you observe
-3. Evaluate them against heuristics
-4. What would you change? Why?
+**Continue session**: `/learning-command continue`
 
-### Exercise 2: Constraint-Driven Redesign
+**Jump to phase**: `/learning-command assumptions | constraints | principles | evaluate`
 
-Pick a feature you built:
-1. Add a new hard constraint (e.g., "Must work without JavaScript")
-2. Redesign within that constraint
-3. Compare the two versions
-4. What improved? What got worse?
+**Get example**: `/learning-command example [topic]`
+- Shows detailed example of good documentation
 
-### Exercise 3: Comparative Analysis
+**Review my work**: `/learning-command review [file]`
+- I'll critique your assumptions/constraints/evaluation document
 
-Pick a common feature (login, search, settings):
-1. Find 10 different implementations
-2. Document patterns and variations
-3. Extract design principles
-4. Create your own version based on learnings
-
-### Exercise 4: Heuristic Audit
-
-Take your current project:
-1. Evaluate every screen against the 5 heuristics
-2. Grade each (A/B/C/D/F)
-3. Fix the worst violations
-4. Re-evaluate
+**Stuck**: `/learning-command help`
+- I'll ask probing questions to unstick you
 
 ---
 
-## Resources for Self-Guided Learning
+## The Learning Goal
 
-### Mental Models to Study
+By the end, you should be able to:
 
-- **Design Patterns**: UI patterns, interaction patterns
-- **Usability Heuristics**: Nielsen's 10, Shneiderman's 8 Golden Rules
-- **Cognitive Psychology**: Mental models, cognitive load, visual perception
-- **Information Architecture**: Organization, navigation, search
-- **Accessibility**: WCAG guidelines, inclusive design
+1. **Articulate assumptions explicitly** instead of designing on gut feel
+2. **Use constraints as decision tools** instead of ignoring them
+3. **Learn from comparable systems** instead of reinventing wheels
+4. **Self-evaluate rigorously** instead of hoping users like it
 
-### Tools for Solo Validation
+This isn't about getting perfect answers. It's about **thinking clearly** when you don't have users to guide you.
 
-- **Cognitive walkthrough**: Step through user flows
-- **Heuristic evaluation**: Check against established principles
-- **Comparative analysis**: Study competitors and analogous products
-- **Edge case exploration**: Test boundary conditions
-- **Performance budget**: Measure against objective criteria
-
-### Communities for Feedback
-
-- Designer News
-- Reddit: r/design_critiques, r/UI_Design
-- Twitter: #DesignFeedback
-- Dribbble, Behance comments
-- Local meetups (even virtual)
-
----
-
-## Remember
-
-**You're not designing in a vacuum**—you're leveraging:
-- Established patterns (collective wisdom)
-- Design principles (proven frameworks)
-- Systematic thinking (rigorous process)
-- Explicit assumptions (intellectual honesty)
-
-**The goal isn't perfection**—it's:
-- **Defensible**: Can you explain why?
-- **Falsifiable**: Can you define what would prove you wrong?
-- **Reversible**: Can you change it based on evidence?
-
-**When in doubt**:
-1. Make assumptions explicit
-2. Follow established patterns
-3. Start simple
-4. Define success criteria
-5. Build feedback loops (even if just self-evaluation)
-
----
-
-## Progression Path
-
-1. **Beginner**: Learn to document assumptions and recognize patterns
-2. **Intermediate**: Apply heuristics systematically, evaluate trade-offs
-3. **Advanced**: Synthesize principles, create novel solutions within constraints
-4. **Expert**: Teach others, contribute to pattern libraries, evolve principles
-
-Start where you are. Every project is practice.
-
----
-
-## Practical Application Prompt
-
-**To use this framework on your next project, start with this:**
-
-```
-I'm working on: [project description]
-
-My constraints are:
-- [Hard constraints]
-- [Soft constraints]
-- [Self-imposed constraints]
-
-My biggest assumptions are:
-- [USER assumptions]
-- [VALUE assumptions]
-- [TECH assumptions]
-
-Comparable products/patterns I've found:
-- [Example 1]
-- [Example 2]
-- [Example 3]
-
-My next decision is: [current design question]
-
-Help me think through this systematically.
-```
-
-Then work through the DARE loop with your AI coding assistant or on paper.
-
----
-
-## Final Thought
-
-**Design without research isn't about guessing—it's about thinking clearly, documenting honestly, and building systematically within constraints.**
-
-You may not have users to talk to, but you have:
-- Logic (first principles)
-- Evidence (comparable examples)
-- Process (systematic evaluation)
-- Humility (explicit assumptions)
-
-That's enough to make good decisions and learn from reality.
+Ready? Share your project name or use `/learning-command continue` if we've already started!
